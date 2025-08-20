@@ -31,7 +31,7 @@ int main() {
     scanf("%d", &opcao);
 
     //caso o usuario digite um numero diferente o programa é encerrado
-    if (opcao > 5)
+    if (opcao == 0 || opcao > 5)
     {
         printf("OPÇÃO INVALIDA, O JOGO TERMINOU!");
         exit(1);
