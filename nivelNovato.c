@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 int main () {
 
@@ -18,8 +20,9 @@ int main () {
     scanf("%s", estado);
     printf("Digite o codigo da carta: ");
     scanf("%s", codigoCarta);
-    printf("Digite o nome da cidade: ");
-    scanf("%s", cidade);
+    getchar();
+    fgets(cidade2 , sizeof(cidade2), stdin);
+    cidade2[strcspn(cidade2, "\n")] = '\0';
     printf("Digite a população da cidade: ");
     scanf("%d", &populacao);
     printf("digite área da cidade: ");
@@ -39,7 +42,7 @@ int main () {
     printf("Estado: %s\n",estado);
     printf("Codigo do estado %s\n",codigoCarta);
     printf("Nome da cidade: %s \n",cidade);
-    printf("População: %.2d\n", populacao);
+    printf("População: %d\n", populacao);
     printf("Área: %.2f km²\n", area);
     printf("PIB: R$%.2f de reais\n",pib);
     printf("Numero de pontos turisticos: %d\n",turistico);
@@ -53,8 +56,9 @@ int main () {
     scanf("%s", estado2);
     printf("Digite o codigo da carta: ");
     scanf("%s", codigoCarta2);
-    printf("Digite o nome da cidade: ");
-    scanf("%s", cidade2);
+    getchar();
+    fgets(cidade2 , sizeof(cidade2), stdin);
+    cidade2[strcspn(cidade2, "\n")] = '\0';
     printf("Digite a população da cidade: ");
     scanf("%d", &populacao2);
     printf("digite área da cidade: ");
@@ -72,7 +76,7 @@ int main () {
     printf("Estado: %s\n",estado2);
     printf("Codigo do estado %s\n",codigoCarta2);
     printf("Nome da cidade: %s \n",cidade2);
-    printf("População: %.2d\n", populacao2);
+    printf("População: %d\n", populacao2);
     printf("Área: %.2f km²\n", area2);
     printf("PIB: R$%.2f de reais\n",pib2);
     printf("Numero de pontos turisticos: %d\n",turistico2);
