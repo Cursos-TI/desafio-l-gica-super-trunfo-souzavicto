@@ -1,12 +1,7 @@
+//tema 2 - nivel Mestre
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// Desafio Super Trunfo - Países
-// Tema 2 - Comparação das Cartas
-
-
-
 
 int main () {
     //declarando as variáveis
@@ -14,7 +9,7 @@ int main () {
     int populacao,populacao2,turistico,turistico2, opcao, opcao2, resultado,resultado2;
     float area,area2,densidade,densidade2,pibPerCapita,pibPerCapita2;
     // alteração de float para double pois o float não esta suportando o numero digitado
-    double pib,pib2;
+    double pib,pib2,superPoder,superPoder2;
     float carta1Rodada1 = 0, carta2Rodada1 = 0;
     float carta1Rodada2 = 0, carta2Rodada2 = 0;
 
@@ -39,6 +34,7 @@ int main () {
     // fazendo os calculos da carta 1:
     densidade = (float) (populacao / area);
     pibPerCapita = (float) (pib / populacao);
+    superPoder = (float)populacao + area + pib + turistico + pibPerCapita + (1.0 / densidade);
 
     // Mostrando os dados da primeira carta:
     printf("Carta 1\n");
@@ -73,7 +69,8 @@ int main () {
 
     // fazendo os calculos da carta 2:
     densidade2 = (float) (populacao2 / area2);
-    pibPerCapita2 = (float) (pib2 / populacao2);    
+    pibPerCapita2 = (float) (pib2 / populacao2);  
+    superPoder2 = (float)populacao2 + area2 + pib2 + turistico2 + pibPerCapita2 + (1.0 / densidade2);  
 
     //Mostrando os dados da segunda carta:
     printf("Carta 2\n");
@@ -81,7 +78,7 @@ int main () {
     printf("Codigo do estado %s\n",codigoCarta2);
     printf("Nome da cidade: %s \n",cidade2);
     printf("População: %d\n", populacao2);
-    printf("Área: %.2f km²\n", area2);
+    printf("Área: %.2f (km²)\n", area2);
     printf("PIB: R$%.2lf de reais\n",pib2);
     printf("Numero de pontos turisticos: %d\n",turistico2);
     printf("Densidade Populacional: %.2f \n", densidade2);
@@ -96,6 +93,7 @@ int main () {
     printf("###################### 4. Numero de Pontos Turisticos #######\n");
     printf("###################### 5. Densidade Demográfica (menor vence)\n");
     printf("###################### 6. PIB Per Capita ####################\n");
+    printf("###################### 7. Super Poder #######################\n");
     printf("Digite sua escolha: ");
     scanf("%d", &opcao);
 
@@ -113,8 +111,8 @@ int main () {
         break;
     case 2:
         printf("Você Escolheu a Opção Área \n");
-        printf("Carta 1: %s, Área: %.2f \n", cidade , populacao);
-        printf("Carta 2: %s, Área: %.2f \n", cidade2, populacao2);
+        printf("Carta 1: %s, Área (km²): %.2f \n", cidade , area);
+        printf("Carta 2: %s, Área (km²): %.2f \n", cidade2, area2);
         resultado = area > area2 ? 1 : 0;
         carta1Rodada1 =  area;
         carta2Rodada1 =  area2;
@@ -151,9 +149,18 @@ int main () {
         carta1Rodada1 =  pibPerCapita;
         carta2Rodada1 =  pibPerCapita2;
         break;
-    
+
+    case 7:
+        printf("Você Escolheu a Opção População \n");
+        printf("Carta 1: %s, Super Poder: %.2f \n", cidade , superPoder);
+        printf("Carta 2: %s, Super Poder: %.2f \n", cidade2, superPoder2);
+        resultado = superPoder > superPoder2 ? 1 : 0;
+        carta1Rodada1 =  superPoder;
+        carta2Rodada1 =  superPoder2;
+        break;    
+
     default:
-            if (opcao == 0 || opcao > 6)
+            if (opcao == 0 || opcao > 7)
         {
             printf("OPÇÂO INVALIDA!, Reinicie Para Jogar Novamente!");
             exit(1);
@@ -170,6 +177,7 @@ int main () {
     printf("###################### 4. Numero de Pontos Turisticos #######\n");
     printf("###################### 5. Densidade Demográfica (menor vence)\n");
     printf("###################### 6. PIB Per Capita ####################\n");
+    printf("###################### 7. Super Poder #######################\n");
     printf("Digite sua escolha: ");
     scanf("%d", &opcao2);
 
@@ -190,8 +198,8 @@ int main () {
         break;
     case 2:
         printf("Você Escolheu a Opção Área \n");
-        printf("Carta 1: %s, Área: %.2f \n", cidade , populacao);
-        printf("Carta 2: %s, Área: %.2f \n", cidade2, populacao2);
+        printf("Carta 1: %s, Área (km²): %.2f \n", cidade , area);
+        printf("Carta 2: %s, Área (km²): %.2f \n", cidade2, area2);
         resultado2 = area > area2 ? 1 : 0;
         carta1Rodada2 =  area;
         carta2Rodada2 =  area2;
@@ -228,9 +236,17 @@ int main () {
         carta1Rodada2 =  pibPerCapita;
         carta2Rodada2 =  pibPerCapita2;
         break;
+    case 7:
+        printf("Você Escolheu a Opção População \n");
+        printf("Carta 1: %s, Super Poder: %.2f \n", cidade , superPoder);
+        printf("Carta 2: %s, Super Poder: %.2f \n", cidade2, superPoder2);
+        resultado = superPoder > superPoder2 ? 1 : 0;
+        carta1Rodada1 =  superPoder;
+        carta2Rodada1 =  superPoder2;
+        break; 
     
     default:
-        if (opcao == 0 || opcao > 6)
+        if (opcao == 0 || opcao > 7)
     {
         printf("OPÇÂO INVALIDA!, Reinicie Para Jogar Novamente!");
         exit(1);
